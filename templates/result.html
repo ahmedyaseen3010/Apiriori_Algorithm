@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apriori Algorithm Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+
+</head>
+<body>
+    <h1>Apriori Algorithm Results</h1>
+
+    <h2>Frequent Itemsets:</h2>
+    {% for k, itemsets in frequent_itemsets.items() %}
+    <h2>Frequent itemsets of size {{ k }}:</h2>
+    <ul>
+        {% for itemset, support in itemsets.items() %}
+            <li>{{ itemset | join(", ") }}: {{ support }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+</body>
+</html>
